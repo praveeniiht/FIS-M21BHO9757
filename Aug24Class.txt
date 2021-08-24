@@ -1,0 +1,308 @@
+OOPS:
+
+Object oriented Programming systems
+
+It is making the programming element as if it behaves like a real time entity.
+
+1. Class  : It is a collection of objects having the similar behaviour
+2. Object : It is an instance of the class 
+3. Encapuslation: It is process of combining both data and member functions together
+   inside the class.
+4. Polymorphism: It is the ability of an entity to exists in more than one form.
+   1. compiletime : The form to be exhibited is know at the time of compilation.
+   2. Runtime : The form to be exhibited is known only at the time of execution.
+
+Flowers: class
+Rose, Lilly etc : Objects
+
+class is a genraralized and object is a specific entity
+
+class is a logical entity and Object is a real time entity
+
+class cannot exists on its own, it will exists in the from of object
+
+Human Beings: class
+Praveen, Sunil etc : Object
+
+
+Book : class, 
+java Programming, C++ , C Programming
+
+
+
+y= mx+c   // class
+y= 4x+6  // one specifc line
+
+access_specifier class <className>{
+		// memeber variables;
+		// member methods;
+}
+public class Employee{
+	int empid;
+	String name;
+	String dept;   // instance variables or non static variables
+	public void function1(){
+		int x,y;  //local variables or method variables
+		System.out.println(empid+" "+name+" "+dept);
+	}
+	public void function2(){
+
+	}
+}
+classname objectname = new classname();
+Employee emp1 = new Employee();
+Employeee emp2 = new Employee();
+emp1.empid;
+emp1.name;
+emp1.dept;
+emp1.function1();
+emp1.function2();
+
+They will define the level of security for the data or methods
+
+Encapsulation: It is comibining of data and methods in the class
+It is required to provide the security for the data  / methods
+
+1. public 
+2. private
+3. protected
+4.            (default)
+
+
+
+Employee emp1 = new Employee();
+
+The activities performed while object is created are:
+
+1. It will load the .class file into the memory.
+
+2. It will instantiate the non static or instance variables.
+   allocating space to the variables
+
+3. It will intalizes the instance variables.
+
+When objects are created memory will be allocated only to variables but
+not for the methods;
+
+
+Constructors
+------------
+It is building block of the objects.
+Constructor defines the way to build the object, or it is used to
+define the specific rule in creating the object.
+
+Any object should be created with the constructors only.
+
+1. default or zero parameter constructor  : user or system can provide it
+2. Parameterized constructor : only by user
+
+
+Constructor is a special method, which can be automatically executed
+when ever the object is created.
+
+It will be having the same name as that of class name.
+It dont have any return type including void
+it can be any access specifier but if we make it as private
+then we cannot create objects.
+
+It is used to intialize the variables
+
+parameterzied constructors are used to define the rule.
+
+this can be used as constant to refer the current object
+
+this : As method is used to refer or call the one constructor in the another
+       constructor.
+
+Rules to remember while using this()
+
+1. It must be the first statement in the constructor.
+2. It cannot be a recursive call
+3. It should not form a loop
+4. It cannot be called from the instance methods but instance
+   method can be called in the constructor.
+
+static:
+
+1. It can be applied to varaibles, methods and blocks
+2. If applied on varaibles, all the variables share the same space and
+   they can be called without creating the objects, ie., can be called
+   on the class itself.
+
+3. If applied on methods, they can be called directly on the classname
+   with out creating the object.
+
+4. If applied on block, it will be automatically executed whenever
+   the .class file is loaded into memory.
+
+if you have any static method it can access only static variables but not
+non static variables, but a non static method can access both static and
+non static variables.
+
+
+1. static block 
+2. Non Static block for every object is created.
+3. Constructor
+4. methods
+
+compile time polymorphism
+--------------------------
+1. function/method overloading
+2. operator overloading
+
+A method is said to be overloaded when two or more methods have the same name
+and if they differ in any one of the following:
+a. Either in the number of parameters
+b. Either in the type of the parameters
+c. Order of the parameters
+
+
+	public void test1(int a, int b);
+	public int test1(int a, char c);
+	public void test1(String x, String y);
+
+	test1 is said to be overloaded.
+
+	publi void area(int x);
+	public void area(int x, int y);
+	public void area(int x, int y, int z);
+
+
+	public void test2(int x, String y);
+	public void test2(String x, int y);
+	test2 is also overloaded
+
+	public int test3(int x);
+	public float test3(int z);
+	public char test3(int a);
+	test3 is not overloaded, 
+	overloading doesnot depend on return type
+
+Runtime Polymorphism
+--------------------
+
+Associations;
+------------
+1. Has-a
+2. Is-a  -- Inheritance
+3. Uses: One class object is passed as parameter to another class method.
+class Engine{
+	int capacity;
+	String stroke;
+	String make;
+
+}
+class Car{
+
+	String model;
+	String fuelType;
+
+	public void showDetails(Engine engine){
+
+
+	}
+
+}
+
+
+
+	
+Inheritance: It is the process of acquring the properties / data from one class
+to another class
+
+inheritance is basically for Code Reusability
+
+The class which is giving properties is called as base / parent class and the class
+which is acquiring properties is called a dervied / child class
+
+extends keyword is used to inherit from one class to another.
+
+
+
+
+1. permanent employee - name,desg,dept,exp,doj calSalary(){   }
+2. contract Employee - name,desg,dept,exp,doj,contractPeriod , calSalary() {  }
+3. Hourly Based employee - name, desg,dept,exp,doj,noHours,ratePerHour,
+                           calSalary(){   }
+
+
+Employee: (name,desg,dept,exp,doj)
+
+PermanentEmployee by extending the Employee class
+calSalary()
+
+contractEmployee  by extending he Employee class
+contractPeriod, calSalary()
+
+
+HourlyBaseEmployee by extending the Employee class
+noOfHours,ratePerHour, calSalary()
+
+
+Method Overriding: It is the process of supressing the base class method
+in the derived class, when both are having the same signature.
+
+Data Overriding: It is the process of supressing the base class data 
+in the derived class, when both are having the same names;
+
+super: It is a keyword, used to refer the variables, methods or constructor
+of its immediate parent class.
+
+
+@Override annotation ensures that the base class method is only overrding 
+in the derived class.
+
+
+Object is the base class for all the classes in java, including userdefined
+classes.
+Methods available in Object class
+
+public int hashCode();
+public String equals()
+public void wait()
+public void wait(int ns)
+public void wait(int ms, int ns)
+public void notify()
+public void notifyAll()
+public String toString()
+public Class getClass()
+public Object clone()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
