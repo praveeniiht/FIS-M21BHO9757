@@ -1,6 +1,6 @@
 package corejava;
 
-public class Address {
+public class Address  {
 	int doorNo;
 	String street;
 	String city;
