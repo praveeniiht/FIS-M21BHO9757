@@ -1,0 +1,308 @@
+Todays Agenda
+-------------
+1. Abstract classes and Interfaces
+
+2. Exception Handling
+
+3. lambda expressions
+
+4. Functional Interfaces
+
+
+Abstract class: An abstract class is a class which has atleast one abstract method.
+A method is abstract when its defintion is not available.
+
+abstract class Ecommerce{
+	public void selectGoods() {
+		System.out.println("Selection of goods is through www.ecommerce.com");
+	}
+	
+	public void payment() {
+		System.out.println("Amount to be paid only through netbanking.");
+	}
+	
+	abstract public void shipment();
+}
+
+Objects cannot be created directly with the abstract classes.
+We have to inherit the abstract class into a child class and override the abstract method and 
+create object for the child class.
+
+Few points to remember
+------------------------
+1. We can write the constructors
+2. Instance Variables can also be defined
+
+Note: When we want to provide different implementations for the same method, then abstract classes
+are used.
+
+
+RBI says that 
+
+1. accounts()
+
+2. loans()
+
+3. deposit()
+
+Interface
+---------
+An interface is a java element which consists of all abstract methods.
+We cannot create objects for interfaces directly
+
+We need to implements the abstract methods into a child class and have to priovide
+definitions to all the abstract methods.
+
+To inherit the abstract methods, we use keyword "implements"
+interfaces will be written usihg interface keyword
+
+In interface all the methods are abstract only, no need to write explcitly the abstract keyword.
+All the methods are public only, even though access specifier is not provided.
+
+ie, by default all the methods in interfaces are public and abstract, so we can remove these while
+writing the interfaces.
+
+Few points to note:
+-------------------
+1. we cannot write the constructors in the intefaces
+2. Instance variables cannot be defined.
+3. But we can define a constant with final keyword.
+
+Final: It is an access modifier, which can be applied to
+	1. on variable  -- Then it becomes constant, so its value cannot be changed.
+	2. on method  --- Then it cannot be overriden
+	3. on class ---- That class not be inherited.
+
+
+Basically interfaces are used to define the rules or templates or blueprints or skeleton
+
+By using interfaces we can acheive multiple inheritance
+
+interface inter1{
+	public void test1();
+	public void test2();
+}
+
+interface inter2{
+	public void test3();
+	public void test4();
+}
+
+class MultipleExample implements inter1, inter2{
+
+}
+
+class extends class   ----> valid
+class extends class1,class2  ---> Invalid
+class implements inteface  ----> valid
+class extends interface -----> invalid
+interface extends inteface ---> valid
+interface extends interface1, interface2 ----> invalid
+class extends class implements interface ----> valid
+class extends class implements interface1,interface2 ---> valid
+
+
+From java8 onwards
+------------------
+
+java2
+3
+4 --------
+5
+6
+7 ------
+8 -------Drastic change
+
+--> focused on the optimization of the code
+--> parallel and concurrent processing of the jobs
+--> optiumum utilization of processors
+default methods and static methods are introduced from java8 onwards
+any number of default methods or static methods
+
+
+9
+10
+11
+12
+14
+16
+
+default methods should be called only on the child classes
+static methods should be called only on the interface 
+
+Lambda Expressions
+------------------
+
+public void display(){
+	System.out.println("Hello world");
+}
+if(cond)
+	s1
+
+else
+
+	s2
+
+Lambda expressions are annoymous functions, without any acces specifier, method name and return type.
+lambda expressions has two parts, 
+1.parameter list 
+2. body or definition
+
+parameter is sepearted with body by using arrow operator ->
+
+
+public void display(){
+	System.out.println("Hello world");
+}
+
+
+()->System.out.println("Hello world");
+
+public void display(String name){
+	System.out.println("Hello , "+name);
+}
+
+(name) ->System.out.println("Hello , "+name);
+
+name->System.out.println("Hello, "+name);
+
+
+public void display(String name, String city){
+	System.out.println("Hello , "+name+" welcome to" +city);
+}
+
+
+(name,city)->System.out.println("Hello , "+name+" welcome to" +city);
+
+
+public void display(String name, String city){
+	System.out.println("Hello , "+name+" welcome to" +city);
+	System.out.println("You state is also confimed");
+}
+
+(name,city)->{
+	System.out.println("Hello , "+name+" welcome to" +city);
+	System.out.println("You state is also confimed");
+}
+
+public int add(int a, int b){
+	return a+b;
+}
+
+(a,b)->a+b;
+
+public int add(int a, int b){
+	int area = a*b;
+	return area;
+}
+
+(a,b)->{
+	int area = a*b;	
+	return area;
+}
+
+Lambada expression are used to provide the implementations for the functional interfaces only
+they cannot be used as is.
+
+A fuctional interface is an interface with only one abstract method.
+
+
+interface Maths{
+	public void add(int a, int b);
+}
+
+java8 predefined functional interfaces
+1. Predicate
+2. Function
+3. Consumer
+4. Supplier
+
+public interface Predicate<T>{
+	public boolean test(T t);
+}
+
+public boolean test(int k) {
+		if(k%2==0)
+			return true;
+		else
+			return false;
+}
+
+Predicate<Integer> p1 = x->x%2==0
+p1.test(50);
+
+@FunctionalInterface
+interface Predicate<T>{
+
+	public boolean test(T t);
+}
+
+
+
+Function: It is a predefined functional interface which has only one method
+called apply and it can any single value datatype as input and returns
+andy datatype.
+
+
+@FunctionalInterface
+public interface Function<T,R>{
+	public R apply(T t);
+}
+
+
+Exception Handling
+-------------------
+when you write any program errors may get at compile time or runtime
+compile time errors are mostly  due to syntax issues
+but runtime errors cannot be predicted.
+
+The process of handling the runtime errors is called exception handling.
+
+
+1. if I have written a program to read a file and display its content.
+   in run time if that file is not available in the hard disk.
+   if we dont have permissions to access the file
+
+2. int a = b/d;
+
+
+3. String str = "Hai";
+	System.out.println(str.charAt(5));
+
+The main objective of exception handling is not to terminate the program execution when the
+exception is occured
+
+
+try{
+
+
+}
+catch()
+{
+
+}
+finally{
+
+}
+next statements
+
+case 1: If exception not occured in try block
+try ---> finally --> next steps
+
+case 2: if exception occured in try block
+try --> catch ---> finally --> next steps
+
+case 3 : if exception occured and no corresponding catch block
+try ---> finally --->abort the program
+
+create a student class with name and marks 
+create a funtion functional interface to accept the student object and based
+on the marks inside the student class display its result as first or second
+or third or fail.
+
+
+
+
+
+
+
