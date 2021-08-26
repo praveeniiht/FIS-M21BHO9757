@@ -1,0 +1,166 @@
+
+
+When ever we are using multiple catch blocks, always parent catch block must be the 
+last one in the hierarchy.
+
+Always use multiple try-catch blocks to handle the exception, ie., just keep that part of the
+code which has error prones in the try catch.
+
+All the direct sub classes of Exception are checked exceptions and all the direct decendants of
+RuntimeException are unchecked exceptions.
+
+All checked exceptions are to be handled explicitly by using try..catch blocks or by adding
+throws statement in the method signature.
+
+Unchecked exceptions doesnot have any check at the compilation time, but if runtime error occurs
+it terminates the program if we dont have any exception handling mechanism.
+
+
+throw ---> is used to explicitly throw the exception object even its corresponding scenario is not 
+occured.
+
+It explicitly transfer the control to the block, it is basically used to create the userdefined 
+exceptions
+
+
+Steps to be followed to write userdefined exception
+----------------------------------------------------
+1. create any userdefined class with userdefined exception name and extend the
+   either Exception or RuntimeExcpetion class
+
+2. Provide any description by using super keyword in the class.
+
+3. Provide the condition to raise
+
+4. Test the exception by raising the condition explicitly.
+
+Multithreading
+--------------
+It is the process of simultensouly executing the parts of the same program.
+The part which is currently executing is called Thread.
+In java, threads can be created by using,
+
+1. Thread class
+2. Runnable interface
+
+
+Methods in Thread class
+-----------------------
+1. public void start()  // this will start the thread to execute
+2. public void run()  // this will contains the actual task of thread
+3. public final void setName(String name)  Thread-0, Thread-1,
+4. public final String getName()
+5. public final void setPriority(int newPriority)    t.setPriority(9);
+6. public final int getPriority()
+
+7. public final void join()
+
+8. public final void join(long millisec)
+The current thread invokes this method on a second thread, causing the current thread to block
+ until the second thread terminates or the specified number of milliseconds passes.
+
+9. public final void setDaemon(boolean on)
+t.setDeamon(true);
+10. public final boolean isDaemon()
+
+11. public final boolean isAlive()
+12. public long getId()
+13. public void interrupt()
+14. public boolean isInterrupted()
+15. public static void dumpStack()
+16. public static void sleep(long millis)
+
+17. public static void yield()
+Causes the currently executing thread object to temporarily pause and 
+allow other threads to execute.
+
+18. public static Thread currentThread()
+
+Why we are calling start() instead of run()
+-------------------------------------------
+1. The start() method register the thread with Thread Scheduler.
+
+2. It performs all other mandatory activities for a thread.
+
+3. It invokes the run method.
+
+4. Most importantly, it starts a new thread. 
+   If we not use the start method and call the run method directly then no 
+   new thread will be created and run method will be treated as a normal method.
+
+
+Synchronization:
+-----------------
+It is the processs of securing the resources without any conflict.
+Synchronization is a process of controlling mutual exclusive problem in multithreading environment. 
+How to implement Synchronization:
+
+Using synchronized method.
+	a. Using non-static synchronized method.
+	b. static synchronized method.
+Using synchronized block.
+
+Collection
+----------
+Collections is represenation of group of objects as a single element.
+
+Collection framework is the collection / group of interfaces , algorithms and implementations to
+represent the group of objects as a single element.
+
+
+Collection framwork has set of interfaces and classes, Collection interface is base for all
+these and it has List, Set and Queue  groups 
+
+List
+----
+1. It is a collection of ordered elements ie elements are in linear fashion.
+2. All the elements are organized in the order of insertion.
+3.Elements can be accessed by using its index.
+4. null values are allowed in the group.
+5. duplicate values are also allowed.
+
+Methods in collection
+--------------------
+add()
+addAll()
+contains()
+containsAll()
+delete()
+retain()
+retianAll()
+
+
+Set
+---
+1. Set is a un ordered collection of elements
+2. Insertion order is not maintained.
+3. duplicates are not allowed
+4. null values are allowed only once.
+
+TreeSet: display elements in sorted order 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
