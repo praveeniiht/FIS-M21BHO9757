@@ -1,9 +1,39 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:p="http://www.springframework.org/schema/p"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
     https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean id="emp" class="fisspringexamples.Employee"></bean>
-   
+	<bean id="quest" class="fisspringexamples.Questions">
+		<property name="qid" value="101" />
+		<property name="question" value="What are the features of Java" />
+		<property name="answers">
+			<list>
+				<value>Java is a programming language</value>
+				<value>Java is a platform</value>
+				<value>Java is an Island</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="emp" class="fisspringexamples.Employee">
+		<constructor-arg value="12345" />
+		<constructor-arg value="kumar" />
+		<constructor-arg ref="addr" />
+	</bean>
+
+	<bean id="stu" class="fisspringexamples.Student">
+		<property name="htno" value="6789" />
+		<property name="name" value="sunil" />
+		<property name="address" ref="addr" />
+	</bean>
+
+	<bean id="addr" class="fisspringexamples.Address">
+		<property name="city" value="Hyderabad" />
+		<property name="dno" value="302" />
+		<property name="street" value="Shanti Nagar" />
+	</bean>
+
+
+
+
 </beans>

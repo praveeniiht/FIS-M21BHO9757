@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="ans1" class="springcollections.Answer">
+		<property name="aid" value="1001" />
+		<property name="answer"
+			value="Java is Object Oriented Language" />
+		<property name="byAuthor" value="Praveen" />
+	</bean>
+	<bean id="ans2" class="springcollections.Answer">
+		<property name="aid" value="1002" />
+		<property name="answer"
+			value="Java is both compiled and Interpreted" />
+		<property name="byAuthor" value="Kumar" />
+	</bean>
+
+	<bean id="q" class="springcollections.Question">
+		<constructor-arg value="1" />
+		<constructor-arg value="What is Java" />
+		<constructor-arg>
+			<list>
+				<ref bean="ans1" />
+				<ref bean="ans2" />
+			</list>
+		</constructor-arg>
+
+	</bean>
+
+</beans>
