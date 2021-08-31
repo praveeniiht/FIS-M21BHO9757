@@ -18,6 +18,14 @@ public class TestSpringCollections {
 		while(itr.hasNext())
 			System.out.println(itr.next());
 		
+		Sample s1 = (Sample)context.getBean("s");
+		Sample s2 = (Sample)context.getBean("s");
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+		
+		Person p = (Person) context.getBean("p");
+		System.out.println(p);
+	
 
 	}
 

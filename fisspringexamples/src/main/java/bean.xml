@@ -15,10 +15,10 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="emp" class="fisspringexamples.Employee">
+	<bean id="emp" class="fisspringexamples.Employee"  autowire="byType">
 		<constructor-arg value="12345" />
 		<constructor-arg value="kumar" />
-		<constructor-arg ref="addr" />
+		<!-- <constructor-arg ref="addr" /> -->
 	</bean>
 
 	<bean id="stu" class="fisspringexamples.Student">

@@ -4,6 +4,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+	<bean id="s" class="springcollections.Sample" scope="prototype"
+		init-method="initmethod" destroy-method="destroy">
+
+	</bean>
+
+	<bean id="address" class="springcollections.Address">
+		<property name="dno" value="302" />
+		<property name="street" value="Shanti Nagar" />
+		<property name="city" value="Hydeabd" />
+
+	</bean>
+	
+	<bean id="p" class="springcollections.Person" autowire="byType">
+		<property name="name" value="Praveen" />
+		
+	</bean>
+	
+	
 	<bean id="ans1" class="springcollections.Answer">
 		<property name="aid" value="1001" />
 		<property name="answer"
