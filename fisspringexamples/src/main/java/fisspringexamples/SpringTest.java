@@ -11,6 +11,12 @@ public class SpringTest {
 	ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
 	Employee e = (Employee) ctx.getBean("emp");
 	e.display();
+	Student s = (Student) ctx.getBean("stu");
+	s.test();
+	
+	Address a = (Address) ctx.getBean("addr");
+	System.out.println(a);
+	
 
 	}
 
