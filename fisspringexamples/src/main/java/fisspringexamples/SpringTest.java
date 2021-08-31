@@ -1,4 +1,5 @@
 package fisspringexamples;
+import java.util.*;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,6 +17,13 @@ public class SpringTest {
 	
 	Address a = (Address) ctx.getBean("addr");
 	System.out.println(a);
+	
+	Questions q  = (Questions) ctx.getBean("quest");
+	System.out.println(q.getQid()+" "+q.getQuestion());
+	System.out.println("The answers are: ");
+	List<String> answers = q.getAnswers();
+	answers.forEach(System.out::println);
+	
 	
 
 	}
