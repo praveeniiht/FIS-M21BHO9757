@@ -14,18 +14,32 @@ public class TesSpringJdbc {
 	Scanner sc = new Scanner(System.in);
 	System.out.println("Enter name of the person");
 	String name = sc.next();
+	Persons p = dao.searchPerson(name);
+	System.out.println(p);
 	
-	/*System.out.println("Enter city of the person");
+	dao.deletePerson(name);  
+	List<Persons> persons = dao.displayPersons();
+	for(Persons p1 :persons) {
+		System.out.println(p1.getName()+" "+p1.getCity()+" "+p1.getState());
+	}
+
+	
+	/*
+	System.out.println("Enter city of the person");
 	String city = sc.next();
 	System.out.println("Enter state of the person");
 	String state = sc.next();
 	Persons person = new Persons(name,city,state);
 	
-	dao.insertPerson(person);*/
+	dao.insertPerson(person);
+	/*
+	dao.deletePerson(name);  
+	List<Persons> persons = dao.displayPersons();
+	for(Persons p :persons) {
+		System.out.println(p.getName()+" "+p.getCity()+" "+p.getState());
+	}
 	
-	dao.deletePerson(name);
-	
-
+*/
 	}
 
 }

@@ -24,8 +24,18 @@ public class PersonDao {
 		System.out.println("Record Deleted....");
 	}
 
+	public List<Persons> displayPersons() {
+		String sql = "select * from Persons";
+		List<Persons> persons = jdbcTemplate.query(sql, new PersonRowMapper());
+		
+		return persons;
+	}
 	
-	
+	public Persons searchPerson(String name) {
+		String sql = "select * from Persons where name=?";
+		Persons p = jdbcTemplate.queryForObject(sql, new Object[]{name}, new PersonRowMapper());
+		return p;
+	}
 	
 
 }
