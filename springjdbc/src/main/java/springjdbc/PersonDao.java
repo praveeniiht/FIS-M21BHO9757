@@ -17,5 +17,15 @@ public class PersonDao {
 		jdbcTemplate.update(SQL, person.getName(), person.getCity(), person.getState());
 		System.out.println("Record inserted.....");
 	}
+	
+	public void deletePerson(String name) {
+		String sql = "delete from Persons where name =?";
+		jdbcTemplate.update(sql,name);
+		System.out.println("Record Deleted....");
+	}
+
+	
+	
+	
 
 }

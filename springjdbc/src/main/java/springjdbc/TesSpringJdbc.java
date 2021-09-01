@@ -14,13 +14,16 @@ public class TesSpringJdbc {
 	Scanner sc = new Scanner(System.in);
 	System.out.println("Enter name of the person");
 	String name = sc.next();
-	System.out.println("Enter city of the person");
+	
+	/*System.out.println("Enter city of the person");
 	String city = sc.next();
 	System.out.println("Enter state of the person");
 	String state = sc.next();
 	Persons person = new Persons(name,city,state);
 	
-	dao.insertPerson(person);
+	dao.insertPerson(person);*/
+	
+	dao.deletePerson(name);
 	
 
 	}
