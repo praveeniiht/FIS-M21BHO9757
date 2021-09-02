@@ -10,4 +10,4 @@
       <property name = "city" column = "city" type = "string"/>
       <property name = "state" column = "state" type = "string"/>
   </class>
-</hibernate-mapping>
+ </hibernate-mapping>
