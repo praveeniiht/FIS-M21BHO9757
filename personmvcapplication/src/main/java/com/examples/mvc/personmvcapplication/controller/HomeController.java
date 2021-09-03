@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.examples.mvc.personmvcapplication.dao.UserDao;
+import com.examples.mvc.personmvcapplication.dao.UserRowMapper;
 import com.examples.mvc.personmvcapplication.model.FisUsers;
 import com.examples.mvc.personmvcapplication.model.Persons;
+
+
 
 @Controller
 public class HomeController {
@@ -51,7 +54,6 @@ public class HomeController {
 	@RequestMapping("/display")
 	public ModelAndView display() {
 		List<Persons> persons = dao.getAllPersons();
-		System.out.println(persons);
 		return new ModelAndView("display","persons",persons);
 	}
 	
@@ -63,14 +65,7 @@ public class HomeController {
 	@RequestMapping("/searchPerson")
 	public ModelAndView searchPerson(HttpServletRequest request) {
 		String name = request.getParameter("sname");
-		List<Persons> persons = dao.getAllPersons();
-		Persons data=null;
-		for(Persons p :persons) {
-			if(p.getName().equals(name)) {
-				data=p;
-			}
-		}
-		System.out.println(data.getName()+" "+data.getCity()+" "+data.getState());
+		Persons data = dao.getPerson(name);
 		return new ModelAndView("searchdata","person",data);
 	}
 }

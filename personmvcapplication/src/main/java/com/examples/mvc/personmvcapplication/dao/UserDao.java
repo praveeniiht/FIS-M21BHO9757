@@ -30,5 +30,10 @@ public class UserDao {
 		return persons;
 	}
 	
+	public Persons getPerson(String name) {
+		String sql = "select * from Persons where name=?";
+		Persons p = template.queryForObject(sql, new Object[]{name}, new PersonRowMapper());
+		return p;
+	}
 
 }
