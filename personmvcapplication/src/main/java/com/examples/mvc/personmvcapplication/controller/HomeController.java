@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.examples.mvc.personmvcapplication.dao.UserDao;
 import com.examples.mvc.personmvcapplication.model.FisUsers;
+import com.examples.mvc.personmvcapplication.model.Persons;
 
 @Controller
 public class HomeController {
@@ -45,5 +46,31 @@ public class HomeController {
 			return new ModelAndView("success", "username",user.getUserid());
 		else
 			return new ModelAndView("fail");
+	}
+	
+	@RequestMapping("/display")
+	public ModelAndView display() {
+		List<Persons> persons = dao.getAllPersons();
+		System.out.println(persons);
+		return new ModelAndView("display","persons",persons);
+	}
+	
+	@RequestMapping("/search")
+	public ModelAndView search() {
+		return new ModelAndView("search");
+	}
+	
+	@RequestMapping("/searchPerson")
+	public ModelAndView searchPerson(HttpServletRequest request) {
+		String name = request.getParameter("sname");
+		List<Persons> persons = dao.getAllPersons();
+		Persons data=null;
+		for(Persons p :persons) {
+			if(p.getName().equals(name)) {
+				data=p;
+			}
+		}
+		System.out.println(data.getName()+" "+data.getCity()+" "+data.getState());
+		return new ModelAndView("searchdata","person",data);
 	}
 }

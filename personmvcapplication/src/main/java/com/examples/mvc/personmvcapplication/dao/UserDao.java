@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.examples.mvc.personmvcapplication.model.FisUsers;
+import com.examples.mvc.personmvcapplication.model.PersonRowMapper;
+import com.examples.mvc.personmvcapplication.model.Persons;
 
 public class UserDao {
 	
@@ -21,6 +23,11 @@ public class UserDao {
 		List<FisUsers> users = template.query("select * from fisusers",new UserRowMapper());
 		return users;
 		
+	}
+	
+	public List<Persons> getAllPersons(){
+		List<Persons> persons = template.query("select * from fisperson", new PersonRowMapper());
+		return persons;
 	}
 	
 
