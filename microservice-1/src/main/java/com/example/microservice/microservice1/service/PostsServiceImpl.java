@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.example.microservice.microservice1.model.CommentsDto;
 import com.example.microservice.microservice1.model.Posts;
 import com.example.microservice.microservice1.repo.PostsDao;
 
@@ -15,6 +17,10 @@ public class PostsServiceImpl implements PostsService {
 	@Autowired
 	PostsDao dao;
 
+	@Autowired
+	RestTemplate template;
+	
+	
 	@Override
 	public Posts addPost(Posts post) {
 		// TODO Auto-generated method stub
@@ -73,9 +79,12 @@ public class PostsServiceImpl implements PostsService {
 	}
 
 	@Override
-	public Object searchCommentsByTitle(String title) {
+	public Object searchCommentsByPostId(int postId) {
 		// TODO Auto-generated method stub
-		return null;
+		// we have to connect to microservice-2 for data
+		
+		List<CommentsDto> comments = template.getForObject("http://localhost:8082/comments/postId/"+postId, List.class);
+		return comments;
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public interface PostsService {
 	public List<Posts> searchPostsByAuthor(String author);
 	public List<Posts> searchPostsByStatus(String status);
 	public List<Posts> searchPostsByTitle(String title);
-	public Object searchCommentsByTitle(String title);
+	public Object searchCommentsByPostId(int postId);
 	public List<Posts> displayAllPosts();
 
 }

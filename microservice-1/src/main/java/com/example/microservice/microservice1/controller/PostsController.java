@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.microservice.microservice1.model.CommentsDto;
 import com.example.microservice.microservice1.model.Posts;
 import com.example.microservice.microservice1.service.PostsService;
 
@@ -60,6 +61,11 @@ public class PostsController {
 	@GetMapping("/title/{titleName}")
 	public List<Posts> searchByTitle(@PathVariable String titleName){
 		return service.searchPostsByTitle(titleName);
+	}
+	
+	@GetMapping("/comments/{postId}")
+	public List<CommentsDto> searchCommentsByPostId(@PathVariable int postId){
+		return (List<CommentsDto>) service.searchCommentsByPostId(postId);
 	}
 
 }
