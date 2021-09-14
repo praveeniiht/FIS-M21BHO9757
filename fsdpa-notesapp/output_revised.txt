@@ -1,0 +1,3 @@
+
+testAddNote=true
+testGetAllNotesByStatus=true
